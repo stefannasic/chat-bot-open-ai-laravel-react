@@ -1,0 +1,64 @@
+.navbar {
+    padding: 16px;
+    text-align: right;
+    position: absolute;
+    right: 0;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-size: 18px;
+    margin-left: 16px;
+    border: 1px solid #E0E1DD;
+    color: #E0E1DD;
+    padding: 4px 8px;
+    transition: 0.3s;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.navbar a:hover {
+    background-color: #E0E1DD;
+    color: #1B263B;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.main img {
+    width: 240px;
+}
+
+.main h1 {
+    font-size: 48px;
+}
+
+.main p {
+    font-size: 20px;
+    font-style: italic;
+    margin-bottom: 64px;
+}
+
+.main a {
+    text-decoration: none;
+    font-size: 24px;
+    color: #1B263B;
+    background-color: #E0E1DD;
+    border: 1px solid white;
+    padding: 4px 8px;
+    transition: 0.3s;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.main a:hover {
+    background-color: #1B263B;
+    color: #E0E1DD;
+}

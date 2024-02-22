@@ -1,0 +1,41 @@
+body {
+    background: rgb(27,38,59);
+    background: linear-gradient(135deg, rgba(27,38,59,1) 0%, rgba(65,90,119,1) 100%);
+    font-size: 16px;
+    font-family: sans-serif;
+    color: #E0E1DD;
+    padding: 0;
+    margin: 0;
+}
+
+.errors {
+    color: darkred;
+    font-weight: bold;
+}
+
+.message {
+    color: darkgreen;
+    font-weight: bold;
+}
+
+.errors ul {
+    padding: 0;
+    margin-bottom: 16px;
+}
+
+.errors ul li {
+    list-style-type: none;
+    text-align: left;
+}
+
+h2 {
+    font-size: 24px;
+    color: #040403;
+}
+
+.right-container {
+    height: 100vh;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+}
