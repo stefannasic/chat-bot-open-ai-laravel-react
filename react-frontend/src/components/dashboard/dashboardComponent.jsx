@@ -16,8 +16,8 @@ const DashboardComponent = () => {
                 </div>
 
                 <div className="messages">
-                <div class="request"><img src="/assets/images/user.svg" alt="" /><div class="content"><p>message</p></div></div>
-                <div class="response"><img src="/assets/images/robot.svg" alt="" /><div class="content"><p>response</p></div></div>
+                <div className="request"><img src="/assets/images/user.svg" alt="" /><div className="content"><p>message</p></div></div>
+                <div className="response"><img src="/assets/images/robot.svg" alt="" /><div className="content"><p>response</p></div></div>
                 </div>
 
                 <div className="send">
