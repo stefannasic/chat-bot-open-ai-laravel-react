@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
+import useAuthContext from '../../context/authContext';
 import './authStyles.css';
 
 const LoginComponent = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [remember, setRemember] = useState(false);
-    const [error, setError] = useState('');
-    const navigate = useNavigate();
+    const {login, errors} = useAuthContext();
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -24,23 +23,14 @@ const LoginComponent = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            await axios.post('http://localhost:8000/login', {email, password});
-            setEmail('');
-            setPassword('');
-            navigate('/dashboard');
-
-        } catch (error) {
-            setError('Invalid credentials. Please try again.');
-            console.log(error);
-        }
+        login({email, password, remember});
     };
 
     return (
         <div className="form-container">
             <div className="form-wrapper">
                 <h2>Log In</h2>
-                {error && <div className='errors'>{error}</div>}
+                {errors && <div className='errors'>{errors}</div>}
                 <form onSubmit={handleSubmit}>
                     <div className="form-content-wrapper">
                         <input type="text" name="email" value={email} onChange={handleEmailChange} placeholder="Email" required />
