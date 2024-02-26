@@ -1,3 +1,11 @@
+.right-container {
+    height: 100vh;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+}
+
 .dashboard-content {
     margin: 0;
     padding: 64px;
@@ -118,8 +126,8 @@
     cursor: pointer;
     aspect-ratio: 1;
     position: absolute;
-    right: 0;
-    top: 5%;
+    right: 0.5%;
+    top: 25%;
 }
 
 ::placeholder {

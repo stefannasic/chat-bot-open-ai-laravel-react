@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import axios from "../api/axios";
 import { useNavigate } from "react-router-dom";
 
@@ -11,15 +11,25 @@ export const AuthProvider = ({children}) => {
     const csrf = () => axios.get("/sanctum/csrf-cookie");
 
     const getUser = async () => {
-        const {data} = await axios.get("api/user");
-        setUser(data);
+        try{
+            const {data} = await axios.get("api/user");
+            setUser(data);
+        } catch(e) {
+            setUser(null);
+        }
     }
+
+    useEffect(() => {
+        if(!user) {
+         getUser();
+        }
+     }, []);
 
     const login = async ({...data}) => {
         await csrf();
         try {
             await axios.post('/login', data);
-            getUser();
+            await getUser();
             navigate('/dashboard');
         } catch (e) {
             setErrors('Invalid credentials. Please try again.')
@@ -30,7 +40,7 @@ export const AuthProvider = ({children}) => {
         await csrf();
         try {
             await axios.post('/register', data);
-            getUser();
+            await getUser();
             navigate('/dashboard');
         } catch (e) {
             if(e.response.status === 422) {
@@ -39,7 +49,14 @@ export const AuthProvider = ({children}) => {
         }
     }
 
-    return <AuthContext.Provider value={{ user, errors, getUser, login, register }}>
+    const logout = () => {
+        axios.post('/logout').then(() => {
+            setUser(null);
+            navigate('/');
+        })
+    }
+
+    return <AuthContext.Provider value={{ user, errors, getUser, login, register, logout }}>
         {children}
     </AuthContext.Provider>
 }
