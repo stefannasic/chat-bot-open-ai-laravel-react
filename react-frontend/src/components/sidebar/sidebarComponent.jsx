@@ -36,7 +36,7 @@ const SidebarComponent = () => {
             <p> Preferences </p>
             </Link>
 
-            <Link to="/" className="sidebar-link">
+            <Link to="/profile" className="sidebar-link">
             <img src="assets/images/profile.svg" alt="" />
             <p> Profile </p>
             </Link>

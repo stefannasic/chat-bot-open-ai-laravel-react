@@ -1,0 +1,82 @@
+.edit {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    color: #040403;
+}
+
+.edit h2 {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 8px;
+}
+
+.edit p {
+    margin: 16px 0;
+}
+
+.edit::-webkit-scrollbar {
+    width: 8px;
+}
+
+.edit::-webkit-scrollbar-thumb {
+    background-color: #0D1B2A;
+    border-radius: 8px;
+}
+
+.edit::-webkit-scrollbar-track {
+    background-color: #778DA9;
+    border-radius: 8px;
+}
+
+.edit-container {
+    padding: 32px;
+    margin: auto 0
+}
+
+.edit-wrapper {
+    background-color: #E0E1DD;
+    border: 1px solid #1B263B;
+    border-radius: 16px;
+    -webkit-box-shadow: 5px 5px 10px 0px rgba(27,38,59,0.25);
+    -moz-box-shadow: 5px 5px 10px 0px rgba(27,38,595,0.25);
+    box-shadow: 5px 5px 10px 0px rgba(27,38,59,0.25);
+    padding: 18px;
+}
+
+.edit-wrapper input {
+    background-color: rgba(119, 141, 169, 0.50);
+    border: 0.5px solid #1B263B;
+    border-radius: 8px;
+    width: 320px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    padding: 4px;
+}
+
+.edit-wrapper button {
+    width: 100%;
+    cursor: pointer;
+    background-color: #1B263B;
+    border: 0.5px solid #1B263B;
+    border-radius: 8px;
+    color: #E0E1DD;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0 4px;
+    transition: 0.3s;
+    text-transform: uppercase;
+    -webkit-box-shadow: 3px 3px 10px 0px rgba(27,38,59,0.25);
+    -moz-box-shadow: 3px 3px 10px 0px rgba(27,38,59.25);
+    box-shadow: 3px 3px 10px 0px rgba(27,38,59,0.25);
+    width: 320px;
+    margin-right: 8px;
+}
+
+.edit-wrapper button:hover {
+    background-color: #E0E1DD;
+    color: #1B263B;
+}

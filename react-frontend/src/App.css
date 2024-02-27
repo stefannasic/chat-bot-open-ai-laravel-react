@@ -11,21 +11,13 @@ body {
 .errors {
     color: darkred;
     font-weight: bold;
+    margin-bottom: 8px;
 }
 
 .message {
     color: darkgreen;
     font-weight: bold;
-}
-
-.errors ul {
-    padding: 0;
-    margin-bottom: 16px;
-}
-
-.errors ul li {
-    list-style-type: none;
-    text-align: left;
+    margin-bottom: 8px;
 }
 
 h2 {
