@@ -1,0 +1,100 @@
+.sidebar {
+    background-color: #0D1B2A;
+    font-size: 18px;
+    font-weight: bold;
+    width: 15%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    font-size: 18px;
+}
+
+.logo {
+    padding: 64px;
+}
+
+.logo img {
+    width: 80px;
+    margin: auto;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+    padding: 8px 16px;
+    color: #E0E1DD;
+    width: 100%;
+}
+
+.sidebar-link:hover {
+    background-color: #415A77;
+}
+
+.sidebar-link:hover {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-link img {
+    margin-right: 16px;
+}
+
+.sidebar-link:link,
+.sidebar-link:visited,
+.sidebar-link:focus,
+.sidebar-link:active {
+    text-decoration: none;
+}
+
+.hidden {
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.preferences {
+    padding: 0 32px;
+    max-width: 100%;
+    transition: 0.3s;
+}
+
+.preferences form label {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.preferences form input {
+    background-color: rgba(119, 141, 169, 0.50);
+    border: 0.5px solid #1B263B;
+    border-radius: 8px;
+    padding: 4px;
+    width: 100%;
+    color: #E0E1DD;
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+
+.preferences form button {
+    padding: 8px;
+    position: static;
+    cursor: pointer;
+    background-color: #1B263B;
+    border: 0.5px solid #1B263B;
+    color: #E0E1DD;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+    text-transform: uppercase;
+    -webkit-box-shadow: 3px 3px 10px 0px rgba(27,38,59,0.25);
+    -moz-box-shadow: 3px 3px 10px 0px rgba(27,38,59.25);
+    box-shadow: 3px 3px 10px 0px rgba(27,38,59,0.25);
+}
+
+.preferences button:hover {
+    background-color: #E0E1DD;
+    color: #1B263B;
+}

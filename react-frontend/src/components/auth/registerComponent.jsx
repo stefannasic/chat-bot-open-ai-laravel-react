@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
+import useAuthContext from '../../context/authContext';
 import './authStyles.css';
 
 const RegisterComponent = () => {
@@ -8,8 +8,7 @@ const RegisterComponent = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordConfirmation, setPasswordConfirmation] = useState('');
-    const [error, setError] = useState({});
-    const navigate = useNavigate();
+    const {register, errors} = useAuthContext();
 
     const handleNameChange = (e) => {
         setName(e.target.value);
@@ -29,69 +28,33 @@ const RegisterComponent = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            if (name.length < 3) {
-                setError({ name: 'Name must be at least 3 characters long' });
-                return;
-            }
-
-            if (!email.includes('@')) {
-                setError({ email: 'Invalid email format' });
-                return;
-            }
-
-            if (password.length < 6) {
-                setError({ password: 'Password must be at least 6 characters long' });
-                return;
-            }
-
-            if (password !== passwordConfirmation) {
-                setError({ passwordConfirmation: 'Passwords do not match' });
-                return;
-            }
-
-            await axios.post('http://localhost:8000/register', {
-                name,
-                email,
-                password,
-                password_confirmation: passwordConfirmation
-            });
-            setName('');
-            setEmail('');
-            setPassword('');
-            setPasswordConfirmation('');
-            navigate('/login');
-        } catch (error) {
-            setError({ general: 'Registration failed. Please try again.' });
-            console.log(error);
-        }
+        register({name, email, password, password_confirmation:passwordConfirmation});
     };
 
     return (
         <div className="form-container">
             <div className="form-wrapper">
                 <h2>Register</h2>
-                {error.general && <div className='errors'>{error.general}</div>}
                 <form onSubmit={handleSubmit}>
                     <div className="form-content-wrapper">
-                        <input type="text" name="name" value={name} onChange={handleNameChange} placeholder="Full Name" required />
-                        {error.name && <div className='errors'>{error.name}</div>}
+                        <input type="text" name="name" value={name} onChange={handleNameChange} placeholder="Full Name" required />        
                     </div>
+                    {errors.name && <div className='errors'>{errors.name}</div>}
 
                     <div className="form-content-wrapper">
                         <input type="email" name="email" value={email} onChange={handleEmailChange} placeholder="Email Address" required />
-                        {error.email && <div className='errors'>{error.email}</div>}
                     </div>
+                    {errors.email && <div className='errors'>{errors.email}</div>}
 
                     <div className="form-content-wrapper">
-                        <input type="password" name="password" value={password} onChange={handlePasswordChange} placeholder="Password" required />
-                        {error.password && <div className='errors'>{error.password}</div>}
+                        <input type="password" name="password" value={password} onChange={handlePasswordChange} placeholder="Password" required />    
                     </div>
+                    {errors.password && <div className='errors'>{errors.password}</div>}
 
                     <div className="form-content-wrapper">
                         <input type="password" name="password_confirmation" value={passwordConfirmation} onChange={handlePasswordConfirmationChange} placeholder="Confirm Password" required />
-                        {error.passwordConfirmation && <div className='errors'>{error.passwordConfirmation}</div>}
                     </div>
+                    {errors.passwordConfirmation && <div className='errors'>{errors.passwordConfirmation}</div>}
 
                     <div className="form-content-wrapper">
                         <button type="submit">REGISTER</button>
