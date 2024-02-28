@@ -57,7 +57,7 @@
 .request .content {
     background-color: #415A77;
     border-radius: 8px;
-    padding: 4px 16px;
+    padding: 8px 16px;
     display: inline-block;
     max-width: 100%;
     text-align: justify;
@@ -78,25 +78,31 @@
 .response .content {
     background-color: #1B263B;
     border-radius: 8px;
-    padding: 4px 16px;
+    padding: 8px 16px;
     display: inline-block;
     max-width: 100%;
     text-align: justify;
     line-height: 1.4;
 }
 
+.typing-dots {
+    display: inline-block;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.typing-dots::after {
+    content: '...';
+    display: inline-block;
+    overflow: hidden;
+    animation: typingAnimation 0.5s infinite;
+}
+
 @keyframes typingAnimation {
     0% { transform: translateY(0); }
     50% { transform: translateY(-3px); }
     100% { transform: translateY(0); }
-}
-
-.typing-dots {
-    display: inline-block;
-    overflow: hidden;
-    animation: typingAnimation 0.5s infinite;
-    font-weight: bold;
-    font-size: 18px;
 }
 
 .send {
