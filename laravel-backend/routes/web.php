@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\PasswordController;
+use App\Http\Controllers\PreferencesController;
+use App\Http\Controllers\OpenAIController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +26,11 @@ Route::post('/profile/update', [ProfileController::class, 'update'])->name('prof
 Route::put('/profile/updatePassword', [PasswordController::class, 'update'])->name('password.update');
 
 Route::delete('/profile/destroy', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+Route::post('/send-message', [OpenAIController::class, 'sendMessage']);
+
+Route::post('/save-preferences', [PreferencesController::class, 'savePreferences'])->name('save.preferences');
+
+Route::get('/user/preferences', [PreferencesController::class, 'getUserPreferences'])->name('user.preferences');
 
 require __DIR__.'/auth.php';
